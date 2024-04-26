@@ -75,7 +75,7 @@ h3 {
 }
 
 table {
-    @apply border-collapse;
+    @apply border-collapse w-full;
 }
 td, th {
     @apply border-2 border-solid p-3;

@@ -17,12 +17,7 @@ if (isset($_GET['idUser'])) {
     }
 } else {
     header("Location: logout.php");
-    echo "header location";
-        // header("Location: logout.php");
     }
-// else {
-//     // header("Location: logout.php");
-// }
 ?>
 
 
@@ -33,7 +28,7 @@ if (isset($_POST['edituser'])) {
         $error = 'Entrez Email & Password svp';
     } else {
         $email     = strip_tags($_POST['email']);
-        $id = strip_tags($_POST['id']);
+        $id = strip_tags($_POST['idUser']);
         $old_avatar = strip_tags($_POST['old_avatar']);
         $photo = $_FILES['photo']['name'];
         $photo_tmp = $_FILES['photo']['tmp_name'];
@@ -53,7 +48,7 @@ if (isset($_POST['edituser'])) {
         } else {
             $photo_name = $old_avatar;
         }
-        $sql = $pdo->prepare("UPDATE user SET email=?, photo=? WHERE id=?");
+        $sql = $bdd->prepare("UPDATE tuser SET email=?, photo=? WHERE idUser=?");
         $sql->execute(array($email, $photo_name, $id));
         header("location: index.php?cible=edit&id=" . $id . "&msg='success'");
     }

@@ -9,11 +9,10 @@
 </head>
 <body>
     <?php 
-        // require_once ("../config/conbd.php"); 
-        // require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'conbd.php';
-        // require_once ("../config/addUser.php");
+        require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'conbd.php';
+        require_once ("../config/addUser.php");
         // require_once ("../config/edit.php");
-        // require_once ("../admin/checklog.php");
+        require_once ("../admin/checklog.php");
     ?>
 
 
@@ -22,7 +21,6 @@
 
         <div class="sub_container_admin">
             <div class="espace_admin">
-                <h3>Ajout Utilisateurs </h3>
                 <h3>Ajout Utilisateurs </h3>
                 <div class="search_opt">
                     <form action="rechercher" method="post">
@@ -37,7 +35,6 @@
                         <label for="password">Password</label>
                         <input type="password" name="password" id="" placeholder="Entrer votre mot de passe">
                         <label for="image">Avatar</label>
-                        <input type="file" name="image" id="image">
                         <input type="file" name="image" id="image">
                         <input type="submit" value="Ajouter" name="ajouter" class="btn_envoyer_admin">
                     </form>

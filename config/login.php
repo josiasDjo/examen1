@@ -22,12 +22,10 @@ if (isset($_POST['login'])) {
 
         if ($total == 0) {
             $error = 'Valeurs de connexion incorrectes<br/>';
-            // echo $error;
         } else {
             if (password_verify($password, $password_bd)) {
                 $_SESSION['tuser'] = $data;
-                header('Location: admin/admin.php');
-                // echo '<script>window.location.href = "admin/admin.php";</script>';
+                header('Location: admin/index.php');
                 exit();
             } else {
                 $error = 'Mot de passe incorrect<br/>';
