@@ -1,3 +1,4 @@
+
 <?php
 
 if (isset($_POST['ajouter'])) {
@@ -5,42 +6,35 @@ if (isset($_POST['ajouter'])) {
     if (empty($_POST['email']) || empty($_POST['password'])) {
         $error = 'Entrez Email & Password svp';
     } else {
+        $email = $_POST['email'];
+        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-        if ($photo != '') {
-            $target_directory = "uploads";
-            $photo = $_FILES['image']['name'];
-            $photo_base = $_FILES['image']['tmp_name'];
-            $photo_data = file_get_contents($photo_base);
-            $photo_tmp = base64_encode($photo_data);
+        $photo_name = 'avatar.png'; // Valeur par défaut
+        if (isset($_FILES['image']['name']) && !empty($_FILES['image']['name'])) {
             $photo = $_FILES['image']['name'];
             $photo_tmp = $_FILES['image']['tmp_name'];
-            
-            if (isset($_FILES['image']['name'])) {
-                $ext = pathinfo($photo, PATHINFO_EXTENSION);
-                $file_name = basename($photo, '.' . $ext);
-                if ($ext != 'jpg' && $ext != 'png' && $ext != 'jpeg' && $ext != 'gif' && $ext != 'JPG') {
-                    $error = 'Uploadez le fichier jpg, png, gif uniquement';
-                } else {
-                    $photo_name = 'avatar-' . rand() . '.' . $ext;
-                    move_uploaded_file($photo_tmp, '../img/' . $photo_name);
-                }
-            }
+            $target_directory = "src/images/";
+            $ext = pathinfo($photo, PATHINFO_EXTENSION);
 
-        } else {
-            $photo_name = 'avatar.png';
+            if ($ext != 'jpg' && $ext != 'png' && $ext != 'jpeg' && $ext != 'gif' && $ext != 'JPG') {
+                $error = 'Uploadez le fichier jpg, png, gif uniquement';
+            } else {
+                $photo_name = 'avatar-' . rand() . '.' . $ext;
+                move_uploaded_file($photo_tmp, $target_directory . $photo_name);
+            }
         }
-        $email         = ($_POST['email']);
-        $password     = password_hash(($_POST['password']), PASSWORD_DEFAULT);
 
         try {
-            $sql = $bdd -> prepare("INSERT INTO tuser (email, password, photo) VALUES (?, ?, ?)");
+            $sql = $bdd->prepare("INSERT INTO tuser (email, password, photo) VALUES (?, ?, ?)");
             $sql->execute(array($email, $password, $photo_name));
-        }
-        catch (Exception $e) {
+        } catch (Exception $e) {
             $error = $e->getMessage();
             echo 'Une erreur est survenue : ' . $error;
         }
         header("location: index.php?cible=addUser");
-        //echo'<script type="text/javascript"> window.location.rel="noopener" href = \'index.php\';</script>';
+        exit();
     }
 }
+
+?>
+```

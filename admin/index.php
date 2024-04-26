@@ -10,22 +10,24 @@
 <body>
     <?php 
         require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'conbd.php';
-        require_once ("../config/addUser.php");
-        // require_once ("../config/edit.php");
+        require_once ("../config/addUser.php"); 
+        // require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'edit.php';
         require_once ("../admin/checklog.php");
     ?>
 
 
     <div class="container-admin">
-        <?php require_once ("headerAdmin.php");  ?>
+        <?php
+            require_once ("headerAdmin.php");  
+        ?>
 
         <div class="sub_container_admin">
             <div class="espace_admin">
                 <h3>Ajout Utilisateurs </h3>
                 <div class="search_opt">
-                    <form action="rechercher" method="post">
-                        <input type="search" name="" <input type="submit" class="recherche_pers">
-                        <input type="submit" value="Rechercher" name="rechercher" class="evoyer_req">
+                    <form action="" method="post">
+                        <input type="search" name="rechercher_q" class="recherche_pers">
+                        <input type="submit" value="Rechercher" name="submit" class="evoyer_req">
                     </form>
                 </div>
                 <div class="addUser">
@@ -39,56 +41,15 @@
                         <input type="submit" value="Ajouter" name="ajouter" class="btn_envoyer_admin">
                     </form>
                 </div>
-
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Action</th>
-                            <th>Avatar</th>
-                            <th>E-mail</th>
-                            <th>Password</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <?php
-                                $x=0;
-                                $sql = $bdd -> prepare ("SELECT * FROM tuser");
-                                $sql -> execute();
-                                $total = $sql ->rowCount();
-                                if ($total > 0 ) {
-                                    $result = $sql ->fetchAll(PDO::FETCH_ASSOC);
-                                    foreach ($result as $data) {
-                                        $x++;
-                                        echo '<tr>
-                                            <td>
-                                                <a href="config/edit.php'  .$data['idUser'] . '">
-                                                    <button class="btn btn-success btn-sm rounded-0 bg-green-700" type="button" data-toggle="tooltip" data-placement="top" 
-                                                    title="" data-original-title="Edit"><i class="fa fa-edit"></i></button>
-                                                </a> 
-                                                <a href="index.php?cible=delete&id=' .$data['idUser'] . '"  onclick="return confirm(\'Are you sure you want to delete this item\')">
-                                                <a href="index.php?cible=delete&id=' .$data['idUser'] . '"  onclick="return confirm(\'Are you sure you want to delete this item\')">
-                                                    <button class="btn btn-danger btn-sm rounded-0 bg-red-700" type="button" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="fa fa-trash"></i></button>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <img src="./../img/' . $data['photo'] . '" style="width:40px;height:40px;border-radius: 10px 5%;">
-                                            </td>
-                                            <td>' . $data['email'] . '</td>
-                                            <td>' . $data['password'] . '</td>
-                                        
-                                        </tr>';
-                                    }
-                                } 
-                                else{
-                                    echo'<tr><td colspan="4" style="color:red;">Aucun element!</td></tr>';	
-                                }
-                            
-                            
-                            ?>
-                        </tr>
-                    </tbody>
-                </table>
+                <?php
+                    if (isset($_POST['rechercher_q'])) {
+                        require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'search.php'; 
+                        // require_once dirname (__DIR__) . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'afficher.php' ;
+                    } else {
+                        require_once dirname (__DIR__) . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'afficher.php' ;
+                        // require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'search.php'; 
+                    }
+                ?>
             </div>
         </div>
     </div>

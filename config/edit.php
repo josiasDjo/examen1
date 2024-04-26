@@ -1,7 +1,10 @@
 <?php
+    require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'edit.php';
+?>
+<?php
 if (isset($_GET['idUser'])) {
     $id = $_GET['idUser'];
-    $sql = $pdo->prepare("SELECT * FROM user WHERE idUser=?");
+    $sql = $bdd->prepare("SELECT * FROM user WHERE idUser=?");
     $sql->execute(array($id));
     $total = $sql->rowCount();
     if ($total > 0) {
