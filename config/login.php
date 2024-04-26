@@ -1,4 +1,6 @@
+
 <?php
+require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'checklog.php';
 
 if (isset($_POST['login'])) {
     $error = '';
@@ -24,7 +26,8 @@ if (isset($_POST['login'])) {
         } else {
             if (password_verify($password, $password_bd)) {
                 $_SESSION['tuser'] = $data;
-                header('location: admin/index.php');
+                header('Location: admin/admin.php');
+                // echo '<script>window.location.href = "admin/admin.php";</script>';
                 exit();
             } else {
                 $error = 'Mot de passe incorrect<br/>';
