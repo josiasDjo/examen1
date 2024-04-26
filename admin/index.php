@@ -9,7 +9,8 @@
 </head>
 <body>
     <?php 
-        require_once ("../config/conbd.php"); 
+        // require_once ("../config/conbd.php"); 
+        require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'conbd.php';
         require_once ("../config/addUser.php");
         require_once ("../config/edit.php");
         require_once ("../admin/checklog.php");
