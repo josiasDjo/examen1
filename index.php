@@ -8,11 +8,9 @@
 </head>
 <body>  
     <?php 
-        // require_once('examen/config/conbd.php');
-        require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'examen' . DIRECTORY_SEPARATOR . 'config' .DIRECTORY_SEPARATOR . 'conbd.php';
-        // $loginCheck = "dirname(__DIR__) . DIRECTORY_SEPARATOR . 'config' .DIRECTORY_SEPARATOR . 'conbd.php'";
+        require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'examen' . DIRECTORY_SEPARATOR . 'config' .DIRECTORY_SEPARATOR . 'conbd.php';
         require_once dirname (__DIR__) . DIRECTORY_SEPARATOR . 'examen' . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'login.php';
-        // require ("config/login.php");
+        require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'examen' . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'checklog.php';
         // require_once('/admin/checklog.php');
     ?>
     <div class="container">

@@ -24,8 +24,8 @@ if (isset($_POST['login'])) {
         } else {
             if (password_verify($password, $password_bd)) {
                 $_SESSION['tuser'] = $data;
-                header('location: examen/admin/index.php');
-                echo "PAGE ADMINISTRATOR, MODIFER";
+                header('location: admin/index.php');
+                exit();
             } else {
                 $error = 'Mot de passe incorrect<br/>';
                 echo "$error";
