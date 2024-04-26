@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Admin</title>
     <link rel="stylesheet" href="../src/style.css">
 </head>
 
@@ -35,7 +35,7 @@
                                                     <button class="btn btn-success btn-sm rounded-0 bg-green-700" type="button" data-toggle="tooltip" data-placement="top" 
                                                     title="" data-original-title="Edit"><i class="fa fa-edit"></i></button>
                                                 </a> 
-                                                <a href="index.php?cible=delete&id=' . $data['idUser'] . '"  onclick="return confirm(\'Are you sure you want to delete this item\')">
+                                                <a href="../config/delete.php?id=<?' . $data['idUser'] . ' "  onclick="return confirm(\'Are you sure you want to delete this item\')">
                                                     <button class="btn btn-danger btn-sm rounded-0 bg-red-700" type="button" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="fa fa-trash"></i></button>
                                                 </a>
                                             </td>

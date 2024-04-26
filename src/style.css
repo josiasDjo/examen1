@@ -2,80 +2,74 @@
 @tailwind components;
 @tailwind utilities;
 
-
-body {
-    @apply justify-center items-center self-center;
+.box {
+    @apply w-full h-screen justify-center items-center relative bg-white flex;
 }
-.container {
-    @apply border-2 border-solid  justify-center items-center text-center
-    w-2/6 m-auto self-center rounded-xl h-fit p-10 bg-slate-200 bg-blend-color-burn;
+.box .container {
+    @apply m-auto w-2/4 h-96 justify-center items-center flex border-2 border-solid border-sky-50 flex-col
+    rounded-lg bg-sky-50;
 }
 .container form {
-    @apply flex flex-col justify-center items-center;
+    @apply justify-center items-center flex flex-col w-full;
 }
 .container form input {
-    @apply border-solid border-2 border-black m-5 pl-3 pr-3 pt-1 pb-1 rounded-md w-full;
+    @apply border-2 border-solid border-black w-9/12 m-4 rounded-lg pl-3 pr-3 p-1;
 }
-.btnSend {
-    @apply w-56 bg-blue-950 text-white border-blue-500;
+.container h1 {
+    @apply font-sans font-bold text-2xl m-5;
 }
-.btnSend:hover {
-    @apply bg-white border-blue-950 text-blue-950;
-}
-h1 {
-    @apply font-sans font-bold text-2xl pt-6;
-}
-.erreur {
-    @apply text-red-700;
+.container form .btnSend {
+    @apply bg-sky-950 text-white border-sky-950;
 }
 
-/* Fichier admin code source css */
 
-h3 {
-    @apply font-sans font-bold text-2xl text-black;
+/* admin design */
+
+
+.container-admin {
+    @apply w-full m-auto;
 }
-.sub_container_admin {
-    @apply w-full flex flex-row;
-} 
 .navbar_admin {
-    @apply bg-blue-950 w-3/12 h-screen text-white p-10 opacity-90 fixed left-0 top-0;
+    @apply w-full h-14 bg-sky-950 text-white p-3;
+}
+.navbar_admin ul {
+    @apply flex flex-row text-white justify-center items-center;
 }
 .navbar_admin li {
-    @apply mt-12 border-2 border-solid border-blue-950 p-4 bg-blue-800 bg-opacity-30 rounded-lg;
-}
-.navbar_admin li:hover{
-    @apply cursor-pointer;
-}
-.navbar_admin i {
-    @apply pr-5;
+    @apply mr-12;
 }
 .sub_container_admin {
-    @apply w-9/12 absolute right-0 top-0 m-auto justify-center items-center;
+    @apply w-11/12 m-auto;
 }
-.espace_admin {
-    @apply w-9/12 p-5; 
+h3 {
+    @apply text-center text-sky-950 font-bold p-5 text-2xl;   
 }
-.espace_admin input {
-    @apply mr-0 ml-0 m-5 pl-3 pr-3 pt-1 pb-1 rounded-md border-solid border-2 border-green-700;
+.search_opt {
+    @apply w-6/12 absolute right-0 mt-7;
 }
-.espace_admin .evoyer_req {
-    @apply border-l-transparent bg-green-700 w-3/12;
+.search_opt form {
+    @apply m-auto w-full justify-center items-center flex mb-7;
 }
-.espace_admin .recherche_pers {
-    @apply border-r-transparent w-8/12;
+.search_opt form .recherche_pers {
+    @apply border-2 border-solid border-sky-950 rounded-lg pl-3 pr-3 w-72 p-1;
+}
+.search_opt form .evoyer_req {
+    @apply border-2 border-solid border-sky-950 bg-sky-950 rounded-lg text-white pl-3 pr-3 p-1;
+}
+.addUser form {
+    @apply flex flex-col relative w-6/12;
 }
 .addUser form input {
-    @apply border-2 border-solid border-blue-950 pl-3 pr-3 pt-1 pb-1 rounded-md w-full;
+    @apply border-2 border-solid border-black w-96 relative m-3 rounded-lg p-1 pl-3 pr-3;
 }
 .addUser form label {
     @apply font-sans font-semibold;
 }
-.addUser form .btn_envoyer_admin {
-    @apply border-green-700 bg-green-700;
+.addUser .btn_envoyer_admin {
+    @apply bg-sky-950 text-white border-sky-950 mb-4;
 }
-
 table {
-    @apply border-collapse w-full;
+    @apply border-collapse w-full ;
 }
 td, th {
     @apply border-2 border-solid p-3;

@@ -41,7 +41,6 @@ if (isset($_POST['edituser'])) {
             if ($ext != 'jpg' && $ext != 'png' && $ext != 'jpeg' && $ext != 'gif' && $ext != 'JPG') {
                 $error = 'Uploadez le fichier jpg, png, gif uniquement';
             } else {
-                //Supprimer ancien avatar s'il est different de avatar.png
                 if ($old_avatar != 'avatar.png') {
                     unlink('../img/' . $old_avatar);
                 }

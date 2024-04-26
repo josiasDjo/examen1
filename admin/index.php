@@ -11,7 +11,7 @@
     <?php 
         require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'conbd.php';
         require_once ("../config/addUser.php"); 
-        // require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'edit.php';
+        // require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'delete.php';
         require_once ("../admin/checklog.php");
     ?>
 
@@ -23,7 +23,7 @@
 
         <div class="sub_container_admin">
             <div class="espace_admin">
-                <h3>Ajout Utilisateurs </h3>
+                <h3>Add Admin </h3>
                 <div class="search_opt">
                     <form action="" method="post">
                         <input type="search" name="rechercher_q" class="recherche_pers">
