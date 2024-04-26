@@ -1,11 +1,4 @@
 <?php
-// require_once ("../admin/index.php");
-// require_once ("../admin/checklog.php");
-// session_start();
-
-// $rootPath = $_SERVER['DOCUMENT_ROOT'];
-// require_once($_SERVER["DOCUMENT_ROOT"] ."/config/conbd.php");
-// require ("../config/conbd.php");
 
 if (isset($_POST['login'])) {
     $error = '';
@@ -23,7 +16,6 @@ if (isset($_POST['login'])) {
         $password_bd = "";
         foreach ($result as $data) {
             $password_bd = $data['password'];
-            // echo "$password_bd";
         }
 
         if ($total == 0) {
@@ -31,19 +23,14 @@ if (isset($_POST['login'])) {
             // echo $error;
         } else {
             if (password_verify($password, $password_bd)) {
-            // if ($password == $password_bd) {  
-                // echo "psw Utilisateur : " . $password . "<br/>" . "Pwd_bd : " . $password_bd . "<br/>";
                 $_SESSION['tuser'] = $data;
                 header('location: examen/admin/index.php');
                 echo "PAGE ADMINISTRATOR, MODIFER";
-                // exit();
             } else {
                 $error = 'Mot de passe incorrect<br/>';
-                // echo "psw Utilisateur : " . $password . "<br/>" . "Pwd_bd : " . $password_bd . "<br/>";
                 echo "$error";
             }
         }
     }
 }
-exit();
 ?>
